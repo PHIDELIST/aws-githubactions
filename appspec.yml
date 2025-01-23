@@ -2,11 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: / 
-    destination: /usr/local/flask_app
+    destination: /usr/local/flaskapp
 
 hooks:
-  BeforeInstall:
+  ApplicationStop:
     - location: stop_old_flask_app.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: aws/scripts/before-install.sh
       timeout: 300
       runas: root
   AfterInstall:
