@@ -13,18 +13,18 @@ permissions:
 
 hooks:
   BeforeInstall:
-    - location: scripts/stop_old_flask_app.sh
+    - location: stop_old_flask_app.sh
       timeout: 300
       runas: ec2-user
   AfterInstall:
-    - location: scripts/install_dependencies.sh
+    - location: install_dependencies.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/start_flask_app.sh
+    - location: start_flask_app.sh
       timeout: 300
       runas: ec2-user
   ValidateService:
-    - location: scripts/validate_flask_app.sh
+    - location: validate_flask_app.sh
       timeout: 300
       runas: ec2-user
