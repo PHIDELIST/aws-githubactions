@@ -8,11 +8,6 @@ phases:
       - echo Installing dependencies...
       - pip install -r requirements.txt
 
-  build:
-    commands:
-      - echo Building the application...
-      - python setup.py install
-
   post_build:
     commands:
       - echo Build completed successfully.
